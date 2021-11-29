@@ -1,3 +1,4 @@
+
 from pyspark import SparkContext
 sc = SparkContext(app="Assignment") #terminal does this automatically
 sc.setLogLevel("ERROR")
