@@ -1,7 +1,8 @@
+from pyspark import SparkContext
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, explode
+sc = SparkContext(appName="ass2")
 spark = SparkSession.builder.getOrCreate()
-sc = SparkContext(appName="Assignment2")
 sc.setLogLevel("ERROR")
 #import files
 df = spark.read.json('/data/doina/UCSD-Amazon-Data/meta_Video_Games.json.gz')

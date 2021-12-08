@@ -1,6 +1,6 @@
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, explode,split, expr
+from pyspark.sql.functions import col, explode
 sc = SparkContext(appName = 'Assignment')
 spark = SparkSession.builder.getOrCreate()
 sc.setLogLevel("ERROR")
