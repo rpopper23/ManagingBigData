@@ -1,3 +1,10 @@
+'''
+Ruben Popper: s2882930
+real	0m21.067s
+user	1m5.452s
+sys	0m4.593s
+'''
+
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, explode

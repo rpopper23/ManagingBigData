@@ -1,6 +1,12 @@
+'''
+Ruben Popper: s2882930
+real	0m15.214s
+user	0m50.745s
+sys	0m2.988s
+'''
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, explode
+from pyspark.sql.functions import col, explode, split
 sc = SparkContext(appName = 'Assignment')
 spark = SparkSession.builder.getOrCreate()
 sc.setLogLevel("ERROR")
