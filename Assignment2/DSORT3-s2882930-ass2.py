@@ -17,7 +17,7 @@ df1 = df.select(split(col("value"),",").alias('value')).withColumn("value", expl
 #order the row values and set the number of partition to 10
 df2 = df1.orderBy('value').repartition(10)
 #convert to rdd to save as text
-rdd = df2.rdd.saveAsTextFile('file:///home/s2882930/ManagingBigData/Assignment2/sort_s2882930')
+df1.rdd.saveAsTextFile('MBD_Assignments/DSORT_Results')
 
 ####### PATH TO FOLDER WITH TEXT FILES #######
-#/home/s2882930/ManagingBigData/Assignment2/sort_s2882930
+#/user/s2882930/ManagingBigData/Assignment2/sort_s288293
