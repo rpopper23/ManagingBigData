@@ -41,3 +41,14 @@ tweets = spark.read.json(PATH) \
     .select(col("text")) \
     .filter(col("text").rlike(KEYWORDS).alias("text")) \
     .write.text("tweet_selection-"+now)
+
+
+
+'''
+1
+real	0m21.358s
+user	0m9.212s
+sys	0m2.121s
+2
+
+'''

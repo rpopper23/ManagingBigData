@@ -17,60 +17,7 @@ df1 = df.select(col('entities')['hashtags'].alias('hashtags'))
 df2 = df1.withColumn("hashtags", explode("hashtags")).select(col("hashtags")['text'].alias('hashtags'))
 #for each distinct hashtags, count its occurences and sort in descending order
 df3 = df2.groupBy('hashtags').count().orderBy('count', ascending = False)
-#df3.rdd.saveAsTextFile('MBD_Assignments/HASHTAGS_Results')
-df3.write.format('json').save('MBD_Assignments/HASHTAGS_Results')
+#save
+df3.write.format('json').save('file:///home/s2882930/ManagingBigData/Assignment3/WEB/WEB_Results')
 
-
-x =[1,2,3,4,5,6,7,8,9,10] 
-y =[96.25, 114.69, 94.76, 80.2]
-
-'''
-1
-real	1m36.246s
-user	0m15.370s
-sys	0m2.512s
-2 
-real	1m54.686s
-user	0m15.283s
-sys	0m2.421s
-
-3
-real	1m34.755s
-user	0m13.842s
-sys	0m2.437s
-
-4
-real	1m20.512s
-user	0m14.496s
-sys	0m2.411s
-
-5
-real	1m52.879s
-user	0m12.830s
-sys	0m2.455s
-
-6
-real	1m21.974s
-user	0m13.600s
-sys	0m2.407s
-
-7
-real	1m26.972s
-user	0m13.220s
-sys	0m2.701s
-
-8
-real	1m30.306s
-user	0m14.730s
-sys	0m2.639s
-
-9
-real	1m34.038s
-user	0m13.731s
-sys	0m2.607s
-
-10
-real	1m33.890s
-user	0m13.541s
-sys	0m2.643s
-'''
+df3.write.format('json').save('file:///user/s2882930/ManagingBigData/Assignment3/BENCH_Results')
