@@ -1,3 +1,7 @@
+'''
+Ruben Popper: s2882930
+RunTime with different max number of executors reported below
+'''
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, explode
@@ -17,12 +21,8 @@ df1 = df.select(col('entities')['hashtags'].alias('hashtags'))
 df2 = df1.withColumn("hashtags", explode("hashtags")).select(col("hashtags")['text'].alias('hashtags'))
 #for each distinct hashtags, count its occurences and sort in descending order
 df3 = df2.groupBy('hashtags').count().orderBy('count', ascending = False)
-#df3.rdd.saveAsTextFile('MBD_Assignments/HASHTAGS_Results')
+#save results on HDFS
 df3.write.format('json').save('MBD_Assignments/HASHTAGS_Results')
-
-
-x =[1,2,3,4,5,6,7,8,9,10] 
-y =[96.25, 114.69, 94.76, 80.2]
 
 '''
 1
@@ -53,6 +53,7 @@ sys	0m2.455s
 real	1m21.974s
 user	0m13.600s
 sys	0m2.407s
+81.97, 86.97, 90.41, 94.04, 93.89
 
 7
 real	1m26.972s
