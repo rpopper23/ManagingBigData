@@ -1,3 +1,9 @@
+'''
+Ruben Popper: s2882930 
+real	2m28.122s
+user	0m12.791s
+sys	0m2.599s
+'''
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
@@ -21,5 +27,7 @@ join_df = df.join(df1, cond, 'inner').select(df.url, (df1.textSize1 - df.textSiz
 #reduce number of partitions and save to HDFS
 join_df.coalesce(8).write.format('json').save('MBD_Assignments/WEB_Results')
  
-#Path
+#Path:
 # /user/s2882930/MBD_Assignments/WEB_Results
+#Launch Command
+# time spark-submit --master yarn --deploy-mode cluster --conf spark.dynamicAllocation.maxExecutors=10 WEB-s2882930-ass3.py
